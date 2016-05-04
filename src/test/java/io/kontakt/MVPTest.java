@@ -1,4 +1,5 @@
 package io.kontakt;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -66,8 +67,8 @@ public class MVPTest {
 		presenter.initializePresenter();
 		presenter.start();
 
-		int leftElementsBefore = leftListElements.size();
-		int rightElementsBefore = rightListElements.size();
+		final int leftElementsBefore = leftListElements.size();
+		final int rightElementsBefore = rightListElements.size();
 
 		final DragDropEvent event = new DragDropEvent();
 		final ListObject draggedObject = new ListObject(randomObject(rightListElements).object());
