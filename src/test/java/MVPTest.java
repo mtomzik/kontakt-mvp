@@ -26,8 +26,9 @@ public class MVPTest {
 		final ArrayList<ListObject> rightListElements = new ArrayList<>();
 		rightListView.setListElements(rightListElements);
 
-		final Presenter presenter = new Presenter(mainView, rightListView, leftListView, rightListPresenter,
-				leftListPresenter);
+		final Presenter presenter = new Presenter.Builder().view(mainView).leftListPresenter(leftListPresenter)
+				.rightListPresenter(rightListPresenter).leftListView(leftListView).rightListView(rightListView).build();
+		presenter.initializePresenter();
 		presenter.start();
 
 		assertTrue(rightListElements.size() > 0);
@@ -48,8 +49,9 @@ public class MVPTest {
 		final ArrayList<ListObject> rightListElements = new ArrayList<>();
 		rightListView.setListElements(rightListElements);
 
-		final Presenter presenter = new Presenter(mainView, rightListView, leftListView, rightListPresenter,
-				leftListPresenter);
+		final Presenter presenter = new Presenter.Builder().view(mainView).leftListPresenter(leftListPresenter)
+				.rightListPresenter(rightListPresenter).leftListView(leftListView).rightListView(rightListView).build();
+		presenter.initializePresenter();
 		presenter.start();
 
 		int leftElementsBefore = leftListElements.size();
@@ -60,14 +62,15 @@ public class MVPTest {
 		final ListObject draggedObject = new ListObject(listElement.object());
 		listElement.onDragStart(event);
 		rightListPresenter.onDrop(event);
-		
+
 		System.out.println(leftListElements.size() + " -> " + leftElementsBefore);
 		System.out.println(rightListElements.size() + " -> " + rightElementsBefore);
 
 		assertEquals(leftListElements.size(), leftElementsBefore + 1);
-//		assertEquals(rightListElements.size(), rightElementsBefore);
+		// assertEquals(rightListElements.size(), rightElementsBefore);
 
 		assertFalse(leftListElements.stream().anyMatch(element -> element.equals(draggedObject)));
-//		assertTrue(rightListElements.stream().anyMatch(element -> element.equals(draggedObject)));
+		// assertTrue(rightListElements.stream().anyMatch(element ->
+		// element.equals(draggedObject)));
 	}
 }

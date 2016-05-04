@@ -8,6 +8,50 @@ import io.kontakt.utils.DragNDropElement;
 
 public class Presenter implements io.kontakt.framework.Presenter, Activity {
 
+	public static class Builder {
+
+		protected View view;
+
+		protected ListView leftListView;
+		protected ListPresenter leftListPresenter;
+
+		protected ListView rightListView;
+		protected ListPresenter rightListPresenter;
+
+		public Builder() {
+
+		}
+
+		public Builder view(final View view) {
+			this.view = view;
+			return this;
+		}
+
+		public Builder rightListView(final ListView rightListView) {
+			this.rightListView = rightListView;
+			return this;
+		}
+
+		public Builder leftListView(final ListView leftListView) {
+			this.leftListView = leftListView;
+			return this;
+		}
+
+		public Builder leftListPresenter(final ListPresenter leftListPresenter) {
+			this.leftListPresenter = leftListPresenter;
+			return this;
+		}
+
+		public Builder rightListPresenter(final ListPresenter rightListPresenter) {
+			this.rightListPresenter = rightListPresenter;
+			return this;
+		}
+
+		public Presenter build() {
+			return new Presenter(this);
+		}
+	}
+
 	private static final CategoryService CATEGORY_SERVICE = CategoryService.INSTANCE;
 
 	private View view;
@@ -19,19 +63,21 @@ public class Presenter implements io.kontakt.framework.Presenter, Activity {
 	private ListView rightListView;
 	private ListPresenter rightListPresenter;
 
-	public Presenter(final View view, final ListView leftView, final ListView rightView,
-			final ListPresenter rightPresenter, final ListPresenter leftPresenter) {
-		this.view = view;
-		this.leftListView = leftView;
-		this.rightListView = rightView;
-		this.leftListPresenter = leftPresenter;
-		this.rightListPresenter = rightPresenter;
-		this.model = new Model(CATEGORY_SERVICE.createCategory("left"), CATEGORY_SERVICE.createCategory("right"));
+	private Presenter(final Builder builder) {
+		this.view = builder.view;
+		this.leftListView = builder.leftListView;
+		this.rightListView = builder.rightListView;
+		this.leftListPresenter = builder.leftListPresenter;
+		this.rightListPresenter = builder.rightListPresenter;
+		this.model = new Model(CATEGORY_SERVICE.createCategory("left"), CATEGORY_SERVICE.createCategory("left"));
+	}
+
+	public void initializePresenter() {
 		leftListPresenter.setView(leftListView);
-		leftPresenter.setPresenter(this);
+		leftListPresenter.setPresenter(this);
 		leftListPresenter.initalizeModel();
 		rightListPresenter.setView(rightListView);
-		rightPresenter.setPresenter(this);
+		rightListPresenter.setPresenter(this);
 		rightListPresenter.initalizeModel();
 	}
 
