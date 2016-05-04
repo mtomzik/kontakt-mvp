@@ -7,8 +7,8 @@ import io.kontakt.subcomponent.ListPresenter;
 public class DragNDropElement {
 
 	private static void move(final ListPresenter addTo, final ListPresenter removeFrom, final Object object) {
-		addTo.addElement(object);
 		removeFrom.removeElement(object);
+		addTo.addElement(object);
 	}
 
 	private static void update(final boolean isLeft, final CategoryService service, final Model model,

@@ -1,3 +1,4 @@
+package io.kontant;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -69,12 +70,12 @@ public class MVPTest {
 		int rightElementsBefore = rightListElements.size();
 
 		final DragDropEvent event = new DragDropEvent();
-		final ListObject draggedObject = new ListObject(randomObject(leftListElements).object());
+		final ListObject draggedObject = new ListObject(randomObject(rightListElements).object());
 		draggedObject.onDragStart(event);
 		rightListPresenter.onDrop(event);
 
-		assertEquals(leftListElements.size(), leftElementsBefore - 1);
-		assertEquals(rightListElements.size(), rightElementsBefore + 1);
+		assertEquals(leftListElements.size(), leftElementsBefore + 1);
+		assertEquals(rightListElements.size(), rightElementsBefore - 1);
 
 		assertFalse(leftListElements.stream().anyMatch(element -> element.equals(draggedObject)));
 		assertTrue(rightListElements.stream().anyMatch(element -> element.equals(draggedObject)));

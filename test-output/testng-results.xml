@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="157" started-at="2016-05-04T22:26:45Z" finished-at="2016-05-04T22:26:45Z">
+  <suite name="Default suite" duration-ms="239" started-at="2016-05-04T22:35:59Z" finished-at="2016-05-04T22:35:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="157" started-at="2016-05-04T22:26:45Z" finished-at="2016-05-04T22:26:45Z">
+    <test name="Default test" duration-ms="239" started-at="2016-05-04T22:35:59Z" finished-at="2016-05-04T22:35:59Z">
       <class name="MVPTest">
-        <test-method status="FAIL" signature="testMoveFromLeftToRight()[pri:0, instance:MVPTest@2c9f9fb0]" name="testMoveFromLeftToRight" duration-ms="114" started-at="2016-05-05T00:26:45Z" finished-at="2016-05-05T00:26:45Z">
+        <test-method status="FAIL" signature="testMoveFromLeftToRight()[pri:0, instance:MVPTest@2c9f9fb0]" name="testMoveFromLeftToRight" duration-ms="179" started-at="2016-05-05T00:35:59Z" finished-at="2016-05-05T00:35:59Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [10] but found [12]]]>
+              <![CDATA[expected [11] but found [12]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [10] but found [12]
+              <![CDATA[java.lang.AssertionError: expected [11] but found [12]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
 	at org.testng.Assert.assertEquals(Assert.java:123)
 	at org.testng.Assert.assertEquals(Assert.java:370)
 	at org.testng.Assert.assertEquals(Assert.java:380)
-	at MVPTest.testMoveFromLeftToRight(MVPTest.java:76)
+	at MVPTest.testMoveFromLeftToRight(MVPTest.java:77)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -50,7 +50,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMoveFromLeftToRight -->
-        <test-method status="PASS" signature="testRenderLists()[pri:0, instance:MVPTest@2c9f9fb0]" name="testRenderLists" duration-ms="3" started-at="2016-05-05T00:26:45Z" finished-at="2016-05-05T00:26:45Z">
+        <test-method status="PASS" signature="testRenderLists()[pri:0, instance:MVPTest@2c9f9fb0]" name="testRenderLists" duration-ms="2" started-at="2016-05-05T00:35:59Z" finished-at="2016-05-05T00:35:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRenderLists -->
