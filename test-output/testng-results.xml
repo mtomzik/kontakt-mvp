@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="149" started-at="2016-05-04T17:02:29Z" finished-at="2016-05-04T17:02:29Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="149" started-at="2016-05-04T17:02:29Z" finished-at="2016-05-04T17:02:29Z">
+      <class name="MVPTest">
+        <test-method status="PASS" signature="testMoveFromLeftToRight()[pri:0, instance:MVPTest@2c9f9fb0]" name="testMoveFromLeftToRight" duration-ms="118" started-at="2016-05-04T19:02:29Z" finished-at="2016-05-04T19:02:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMoveFromLeftToRight -->
+        <test-method status="PASS" signature="testRenderLists()[pri:0, instance:MVPTest@2c9f9fb0]" name="testRenderLists" duration-ms="3" started-at="2016-05-04T19:02:29Z" finished-at="2016-05-04T19:02:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRenderLists -->
+      </class> <!-- MVPTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
