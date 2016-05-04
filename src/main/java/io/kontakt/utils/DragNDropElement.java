@@ -31,7 +31,7 @@ public class DragNDropElement {
 			move(rightPresenter, leftPresenter, element);
 			update(false, service, model, element);
 		} else {
-			throw new IllegalStateException("Wrong category name! :(");
+			throw new IllegalStateException("Wrong category name: " + category);
 		}
 	}
 

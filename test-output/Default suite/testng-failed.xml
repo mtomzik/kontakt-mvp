@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="MVPTest">
+      <class name="io.kontant.MVPTest">
         <methods>
           <include name="testMoveFromLeftToRight"/>
         </methods>
-      </class> <!-- MVPTest -->
+      </class> <!-- io.kontant.MVPTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

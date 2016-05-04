@@ -20,4 +20,8 @@ public class ListView implements View {
 	public void setListElements(final List<ListObject> listElements) {
 		this.listElements = listElements;
 	}
+	
+	public List<ListObject> listElements() {
+		return this.listElements;
+	}
 }
