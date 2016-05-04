@@ -2,15 +2,13 @@ package io.kontakt.utils;
 
 import io.kontakt.Model;
 import io.kontakt.framework.CategoryService;
-import io.kontakt.subcomponent.ListObject;
 import io.kontakt.subcomponent.ListPresenter;
 
 public class DragNDropElement {
 
 	private static void move(final ListPresenter addTo, final ListPresenter removeFrom, final Object object) {
-		final ListObject element = new ListObject(object);
-		addTo.addElement(element);
-		removeFrom.removeElement(element);
+		addTo.addElement(object);
+		removeFrom.removeElement(object);
 	}
 
 	private static void update(final boolean isLeft, final CategoryService service, final Model model,

@@ -19,7 +19,7 @@ public class Presenter implements io.kontakt.framework.Presenter, Activity {
 		protected ListPresenter rightListPresenter;
 
 		public Builder() {
-
+			// empty
 		}
 
 		public Builder view(final View view) {

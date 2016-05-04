@@ -1,4 +1,10 @@
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import org.testng.annotations.Test;
 
@@ -9,9 +15,14 @@ import io.kontakt.subcomponent.ListObject;
 import io.kontakt.subcomponent.ListPresenter;
 import io.kontakt.subcomponent.ListView;
 
-import static org.testng.Assert.*;
-
 public class MVPTest {
+
+	public ListObject randomObject(final List<ListObject> list) {
+		final Random random = new Random();
+		final int index = random.nextInt(list.size());
+		return list.get(index);
+	}
+
 	@Test
 	public void testRenderLists() throws Exception {
 
@@ -58,19 +69,14 @@ public class MVPTest {
 		int rightElementsBefore = rightListElements.size();
 
 		final DragDropEvent event = new DragDropEvent();
-		final ListObject listElement = leftListElements.get(0);
-		final ListObject draggedObject = new ListObject(listElement.object());
-		listElement.onDragStart(event);
+		final ListObject draggedObject = new ListObject(randomObject(leftListElements).object());
+		draggedObject.onDragStart(event);
 		rightListPresenter.onDrop(event);
 
-		System.out.println(leftListElements.size() + " -> " + leftElementsBefore);
-		System.out.println(rightListElements.size() + " -> " + rightElementsBefore);
-
-		assertEquals(leftListElements.size(), leftElementsBefore + 1);
-		// assertEquals(rightListElements.size(), rightElementsBefore);
+		assertEquals(leftListElements.size(), leftElementsBefore - 1);
+		assertEquals(rightListElements.size(), rightElementsBefore + 1);
 
 		assertFalse(leftListElements.stream().anyMatch(element -> element.equals(draggedObject)));
-		// assertTrue(rightListElements.stream().anyMatch(element ->
-		// element.equals(draggedObject)));
+		assertTrue(rightListElements.stream().anyMatch(element -> element.equals(draggedObject)));
 	}
 }

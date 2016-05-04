@@ -14,8 +14,7 @@ public class ListView implements View {
 	}
 
 	public void removeElement(final Object element) {
-		final ListObject listElement = new ListObject(element);
-		listElements.remove(listElement);
+		listElements.removeIf(object -> equals(element));
 	}
 
 	public void setListElements(final List<ListObject> listElements) {
