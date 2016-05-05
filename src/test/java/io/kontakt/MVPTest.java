@@ -60,15 +60,14 @@ public class MVPTest {
 		final int rightElementsBefore = rightListElements.size();
 
 		final DragDropEvent event = new DragDropEvent();
-		final ListObject draggedObject = new ListObject(randomObject(rightListElements).object());
+		final ListObject draggedObject = new ListObject(randomObject(leftListElements).object());
 		draggedObject.onDragStart(event);
 		rightListPresenter.onDrop(event);
 
-		assertEquals(leftListElements.size(), leftElementsBefore + 1);
-//		assertEquals(rightListElements.size(), rightElementsBefore - 1);
+		assertEquals(leftListElements.size(), leftElementsBefore - 1);
+		assertEquals(rightListElements.size(), rightElementsBefore + 1);
 
 		assertFalse(leftListElements.stream().anyMatch(element -> element.equals(draggedObject)));
-		// assertTrue(rightListElements.stream().anyMatch(element ->
-		// element.equals(draggedObject)));
+		assertTrue(rightListElements.stream().anyMatch(element -> element.equals(draggedObject)));
 	}
 }

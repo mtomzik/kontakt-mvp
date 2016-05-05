@@ -8,6 +8,10 @@ import io.kontakt.utils.DragNDropElement;
 
 public class Presenter implements io.kontakt.framework.Presenter, Activity {
 
+	private static final String RIGHT = "right";
+
+	private static final String LEFT = "left";
+
 	public static class Builder {
 
 		protected View view;
@@ -69,7 +73,7 @@ public class Presenter implements io.kontakt.framework.Presenter, Activity {
 		this.rightListView = builder.rightListView;
 		this.leftListPresenter = builder.leftListPresenter;
 		this.rightListPresenter = builder.rightListPresenter;
-		this.model = new Model(CATEGORY_SERVICE.createCategory("left"), CATEGORY_SERVICE.createCategory("left"));
+		this.model = new Model(CATEGORY_SERVICE.createCategory(LEFT), CATEGORY_SERVICE.createCategory(RIGHT));
 	}
 
 	public void initializePresenter() {
